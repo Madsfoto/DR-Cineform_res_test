@@ -36,17 +36,32 @@ namespace DR_Cineform_res_test
             string input = "cc.mov";
 
             // main loop
+            // Checks every valid resolution, but takes a lot of files and a lot of space
+            //for (int x = 1; x <= 2048; x++)
+            //{
+            //    for (int y = 1; y <= 2048; y++)
+            //    {
+            //        if(x%16==0) // ffmpeg only supports cineform resolutions with a width of n*16
+            //        {
+            //            string batStrTest = Createbatline(input, x.ToString(), y.ToString());
+            //            batContent.Add(batStrTest);
+            //        }
+
+            //    }
+
+            //}
+            // main loop2
+            // only checks horizontal resolutions, forcing vertial value to be 1080
+            int y = 1080;
             for (int x = 1; x <= 2048; x++)
             {
-                for (int y = 1; y <= 2048; y++)
-                {
-                    if(x%16==0) // ffmpeg only supports cineform resolutions with a width of n*16
+                    if (x % 16 == 0) // ffmpeg only supports cineform resolutions with a width of n*16
                     {
                         string batStrTest = Createbatline(input, x.ToString(), y.ToString());
                         batContent.Add(batStrTest);
                     }
-                    
-                }
+
+                
 
             }
 
